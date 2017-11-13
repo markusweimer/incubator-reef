@@ -26,15 +26,19 @@ using Org.Apache.REEF.Client.API.Testing;
 
 namespace Org.Apache.REEF.Tests.Functional.TestFramework
 {
+    
     /// <summary>
     /// Tests of REEF's test framework
     /// </summary>
+    [Collection(TestConstants.PortableTestCollection)]
     public sealed class TestTestFramework
     {
+        
         /// <summary>
         /// Tests whether a Driver with a single failing assert is reported correctly.
         /// </summary>
         [Fact]
+        [Trait("Environment", "portable")]
         public void TestTestFailure()
         {
             ITestRunner testRunner = TestRunnerFactory.NewTestRunner();
@@ -62,6 +66,7 @@ namespace Org.Apache.REEF.Tests.Functional.TestFramework
         /// Tests whether a Driver with a single passing test is reported correctly.
         /// </summary>
         [Fact]
+        [Trait("Environment", "portable")]
         public void TestTestPassing()
         {
             ITestRunner testRunner = TestRunnerFactory.NewTestRunner();

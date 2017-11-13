@@ -18,6 +18,7 @@
 using Org.Apache.REEF.Client.Local.TestRunner;
 using Org.Apache.REEF.Utilities.Attributes;
 using System;
+using Org.Apache.REEF.Client.YARN.TestRunner;
 
 namespace Org.Apache.REEF.Client.API.Testing
 {
@@ -42,7 +43,7 @@ namespace Org.Apache.REEF.Client.API.Testing
         {
             if (RunOnYarn())
             {
-                throw new NotImplementedException("Running tests on YARN is not supported yet.");
+                return YarnTestRunner.GetYarnTestRunner();
             }
             return LocalTestRunner.GetLocalTestRunner();
         }
